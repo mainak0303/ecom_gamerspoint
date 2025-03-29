@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import { IRegisterProps } from "@/typescript/auth.interface";
 import { registerMutation } from "@/customHooks/query/auth.query";
 import { keyframes } from "@emotion/react";
-import toast from "react-hot-toast";
 import Loader from "@/layouts/header/Loader";
 
 

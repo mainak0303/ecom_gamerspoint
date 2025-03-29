@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Box, Button, TextField, Typography, Paper, Grid, Avatar, IconButton } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "next/router";
-import { IUpdateProductRequest, UpdateProductResponse } from "@/typescript/cms.interface";
+import { IUpdateProductRequest } from "@/typescript/cms.interface";
 import Loader from "@/layouts/header/Loader";
 import EditIcon from "@mui/icons-material/Edit";
 import { keyframes } from "@emotion/react";
 import { updateProductMutation } from "@/customHooks/query/cms.query";
 import { useProductDetailsQuery } from "@/customHooks/query/cms.query";
-import toast from "react-hot-toast";
+
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-20px); }
