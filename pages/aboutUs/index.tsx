@@ -61,7 +61,7 @@ const AboutUsPage: React.FC = () =>
                         </Typography>
 
                         <Typography variant="body1" sx={ { mb: 3, lineHeight: 1.8 } }>
-                            This is a web portal of GamERSPOiNT Private Limited, a
+                            This is a web portal of GamERSPOiNT Private Limited a
                             young and vibrant company that aims to provide good quality branded
                             IT products online.
                         </Typography>
@@ -78,7 +78,7 @@ const AboutUsPage: React.FC = () =>
 
                         <Typography variant="body1" sx={ { mb: 3, lineHeight: 1.8 } }>
                             To provide customers superior quality and well-known brand products
-                            with best support & excellent after sale services are company's
+                            with best support & excellent after sale services are companies
                             motto.
                         </Typography>
                     </Box>

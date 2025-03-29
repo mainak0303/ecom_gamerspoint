@@ -225,7 +225,7 @@ const Login: React.FC = () =>
                             onClick={ () => router.push( "/auth/registration" ) }
                             disabled={ isPending || loading }
                         >
-                            Don't have an account? Register here
+                            Do not have an account? Register here
                         </Button>
                     </form>
                 </Paper>
