@@ -64,7 +64,7 @@ const Login: React.FC = () =>
           setTimeout( () =>
           {
             setLoading( false );
-            router.replace( "/cms/list" );
+            router.push( "/cms/list" );
           }, 500 );
         } else
         {
