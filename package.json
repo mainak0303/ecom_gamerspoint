@@ -16,6 +16,7 @@
     "@tanstack/react-query": "^5.67.2",
     "axios": "^1.8.2",
     "framer-motion": "^12.4.11",
+    "js-cookie": "^3.0.5",
     "next": "15.2.1",
     "react": "^19.0.0",
     "react-bootstrap-sweetalert": "^5.2.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

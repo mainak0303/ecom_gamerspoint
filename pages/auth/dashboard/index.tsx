@@ -1,29 +1,21 @@
-import { Avatar, Box, Button, Grid, Paper, Typography } from "@mui/material";
+import React from "react";
+import { Box, Typography, Avatar, CircularProgress, Paper, Grid } from "@mui/material";
+import { useDashboardQuery } from "@/customHooks/query/auth.query.hooks";
+import { dashboardProps } from "@/typescript/auth.interface";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { useRouter } from "next/router";
 import { keyframes } from "@emotion/react";
-import Loader from "@/layouts/header/Loader";
-import { useDashboardQuery } from "@/customHooks/query/auth.query";
 
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const DashboardPage = () => {
-  const router = useRouter();
-  const { data, isLoading } = useDashboardQuery();
-
-  const handleUpdatePassword = () => {
-    router.push("/auth/update_password");
-  };
-
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  const userData = data?.data || data;
-  const welcomeMessage = data?.message || "Welcome to your dashboard";
+const ProfileModal: React.FC<dashboardProps> = () => {
+  const {
+    data: user,
+    isPending: isPendingCategories,
+    isError: isErrorCategories,
+  } = useDashboardQuery();
 
   return (
     <Grid
@@ -61,50 +53,58 @@ const DashboardPage = () => {
             variant="h4"
             sx={{ margin: "20px 0", color: "#d32f2f", fontWeight: "bold" }}
           >
-            User Dashboard
-          </Typography>
-          <Typography variant="subtitle1" sx={{ color: "#d32f2f", mb: 2 }}>
-            {welcomeMessage}
+            Profile Details
           </Typography>
         </Box>
 
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h6" sx={{ color: "#d32f2f", mb: 2 }}>
-            User Information
+        {isPendingCategories ? (
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+            <CircularProgress />
+          </Box>
+        ) : isErrorCategories ? (
+          <Typography color="error" sx={{ mt: 4 }}>
+            Error fetching profile details.
           </Typography>
+        ) : (
+          user && (
+            <Box sx={{ mt: 4 }}>
+              <Avatar
+                src="/c.png"
+                alt="Profile Image"
+                sx={{
+                  width: 170,
+                  height: 170,
+                  mx: "auto",
+                  mb: 4,
+                  border: "4px solid #d32f2f",
+                  boxShadow: "0px 0px 10px rgba(211, 47, 47, 0.5)",
+                  transition: "0.3s",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                    boxShadow: "0px 0px 20px rgba(211, 47, 47, 0.8)",
+                  },
+                }}
+              />
 
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="subtitle1">Name:</Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              {userData?.name || "N/A"}
-            </Typography>
-          </Box>
+              <Box sx={{ mb: 3 }}>
+                <Typography variant="subtitle1">Name:</Typography>
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                  {user.data.name}
+                </Typography>
+              </Box>
 
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="subtitle1">Email:</Typography>
-            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-              {userData?.email || "N/A"}
-            </Typography>
-          </Box>
-          
-          <Button
-            variant="contained"
-            fullWidth
-            sx={{
-              marginTop: 4,
-              background: "#d32f2f",
-              "&:hover": { background: "#b71c1c" },
-              py: 1.5,
-              fontSize: "1rem",
-            }}
-            onClick={handleUpdatePassword}
-          >
-            Update Password
-          </Button>
-        </Box>
+              <Box sx={{ mb: 3 }}>
+                <Typography variant="subtitle1">Email:</Typography>
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                  {user.data.email}
+                </Typography>
+              </Box>
+            </Box>
+          )
+        )}
       </Paper>
     </Grid>
   );
 };
 
-export default DashboardPage;
+export default ProfileModal;

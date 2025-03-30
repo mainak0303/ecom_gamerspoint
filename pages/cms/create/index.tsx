@@ -6,7 +6,7 @@ import { ICreateProductRequest } from "@/typescript/cms.interface";
 import Loader from "@/layouts/header/Loader";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { keyframes } from "@emotion/react";
-import { createProductMutation } from "@/customHooks/query/cms.query"; 
+import { createProductMutation } from "@/customHooks/query/cms.query.hooks."; 
 
 
 const fadeIn = keyframes`

@@ -8,7 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import SearchIcon from "@mui/icons-material/Search";
 import SortIcon from "@mui/icons-material/Sort";
-import { useProductListQuery, deleteProductMutation } from "@/customHooks/query/cms.query";
+import { useProductListQuery, deleteProductMutation } from "@/customHooks/query/cms.query.hooks.";
 import Swal from 'sweetalert2';
 
 const fadeIn = keyframes`

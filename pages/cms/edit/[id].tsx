@@ -6,8 +6,8 @@ import { IUpdateProductRequest } from "@/typescript/cms.interface";
 import Loader from "@/layouts/header/Loader";
 import EditIcon from "@mui/icons-material/Edit";
 import { keyframes } from "@emotion/react";
-import { updateProductMutation } from "@/customHooks/query/cms.query";
-import { useProductDetailsQuery } from "@/customHooks/query/cms.query";
+import { updateProductMutation } from "@/customHooks/query/cms.query.hooks.";
+import { useProductDetailsQuery } from "@/customHooks/query/cms.query.hooks.";
 
 
 const fadeIn = keyframes`

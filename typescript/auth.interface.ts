@@ -1,70 +1,76 @@
-// Login  Interface
-export interface ILoginProps
+export interface IloginProps
 {
-    email: string;
-    password: string;
+  id: string;
+  email: string;
+  password: string;
+  token: string;
+  message: string;
+  status: number;
+  data: object;
+}
+export interface IregisterProps
+{
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  token: string;
+  message: string;
+  status: number;
+}
+export interface loginProps extends IloginProps
+{
+  user: IloginProps;
 }
 
-// Login  Interface
-export interface LoginResponse
+export interface registerProps extends IregisterProps
 {
-    token: string;
-    message: string;
-    status: number;
-    user: ILoginProps;
+  user: IregisterProps;
 }
 
-// Registration  Interface
-export interface IRegisterProps
+export interface IdashboardProps
 {
-    name: string;
-    email: string;
-    password: string;
+  name: string;
+  email: string;
+  createdAt: Date;
+  token: string;
+  message: string;
+  status: number;
+  data: object;
+}
+export interface dashboardProps extends IdashboardProps
+{
+  user: IdashboardProps;
 }
 
-// Registration  Interface
-export interface RegisterResponse
+export interface profilemodalProps
 {
-    data: any;
-    message: string;
-    status: number;
-    user: IRegisterProps;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-// Verify OTP  Interface
-export interface IVerifyOtpProps
+export interface IOTpProps
 {
-    email: string;
-    otp: string;
+  email: string;
+  otp: number;
+  token: string;
+  message: string;
+  status: number;
+}
+export interface OTpProps extends IOTpProps
+{
+  user: IOTpProps;
 }
 
-// Verify OTP  Interface
-export interface VerifyOtpResponse
+export interface IupdatePassProps
 {
-    message: string;
-    status: number;
-    user: IVerifyOtpProps;
+  user_id: string;
+  password: string;
+  token: string;
+  message: string;
+  status: number;
 }
-
-// Update Password  Interface
-  export interface updatePassProps  {
-    user_id: string;
-    password: string;
-    token: string;
-    message: string;
-    status: number;
-  }
-  
-
-// Dashboard Interface
-export interface DashboardResponse {
-    message: string;
-    data: {
-      _id: string;
-      name: string;
-      email: string;
-    };
-    email?: string;
-    name?: string;
-    _id?: string;
-  }
+export interface updatePassProps extends IupdatePassProps
+{
+  user: IupdatePassProps;
+}

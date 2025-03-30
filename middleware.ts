@@ -7,6 +7,7 @@ export function middleware ( request: NextRequest )
     "/cms/create",
     "/cms/list",
     "/auth/dashboard",
+    "/auth/update_password",
   ];
 
   if ( protectedRoutes.some( route => request.nextUrl.pathname.startsWith( route ) ) && !token )

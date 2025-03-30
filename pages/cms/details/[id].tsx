@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { keyframes } from "@emotion/react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Loader from "@/layouts/header/Loader";
-import { useProductDetailsQuery } from "@/customHooks/query/cms.query";
+import { useProductDetailsQuery } from "@/customHooks/query/cms.query.hooks.";
 import BoltIcon from '@mui/icons-material/Bolt';
 
 // Gaming-themed animations
